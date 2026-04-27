@@ -1,0 +1,111 @@
+// 1. VARIABLES
+// Guardamos los colores para cambiarlos fácilmente
+$color-fondo: #1a1a1a;
+$color-texto: #ffffff;
+$color-acento: #e8a020; // Dorado/Naranja
+$espacio: 20px;
+
+// 2. ESTILOS GENERALES
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $color-fondo;
+    color: $color-texto;
+    line-height: 1.6;
+}
+
+// 3. FLEXBOX: Navegación (Header)
+// Usamos Flexbox para separar el logo del menú
+header {
+    background-color: #000;
+    padding: 1rem 5%;
+    display: flex;             // Activamos Flexbox
+    justify-content: space-between; // Empuja el logo a la izquierda y nav a la derecha
+    align-items: center;       // Centra todo verticalmente
+
+    .logo {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: $color-acento;
+    }
+
+    nav {
+        display: flex;         // Flexbox también para los enlaces
+        gap: 15px;             // Espacio uniforme entre botones
+
+        a {
+            color: $color-texto;
+            text-decoration: none;
+            &:hover {
+                color: $color-acento;
+            }
+        }
+    }
+}
+
+// 4. SECCIÓN HERO (Centrado con Flexbox)
+.hero {
+    height: 60vh;
+    display: flex;             // Activamos Flexbox
+    flex-direction: column;    // Alineamos los elementos hacia abajo (columna)
+    justify-content: center;   // Centramos contenido verticalmente
+    align-items: center;       // Centramos contenido horizontalmente
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('tu-imagen.jpg');
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .boton {
+        background-color: $color-acento;
+        color: black;
+        padding: 10px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+}
+
+// 5. GRID: Secciones de Contenido (Fechas y Zonas)
+// Usaremos Grid para organizar el contenido principal
+main {
+    padding: 50px 5%;
+    display: grid;             // Activamos Grid
+    grid-template-columns: 1fr 1fr; // Divide la pantalla en 2 columnas iguales
+    gap: 40px;                 // Espacio entre la tabla y la lista
+    align-items: start;
+
+    section {
+        background: #252525;
+        padding: $espacio;
+        border-radius: 10px;
+    }
+
+    h2 {
+        color: $color-acento;
+        border-bottom: 2px solid $color-acento;
+        padding-bottom: 10px;
+    }
+}
+
+// Estilos de la tabla (CSS estándar dentro de Sass)
+table {
+    width: 100%;
+    border-collapse: collapse;
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+    }
+}
+
+// 6. FOOTER
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    font-size: 0.9rem;
+}
