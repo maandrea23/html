@@ -1,11 +1,11 @@
-// 1. VARIABLES
+
 // Guardamos los colores para cambiarlos fácilmente
 $color-fondo: #1a1a1a;
 $color-texto: #ffffff;
-$color-acento: #e8a020; // Dorado/Naranja
+$color-acento: #e8a020; 
 $espacio: 20px;
 
-// 2. ESTILOS GENERALES
+// General styles
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -15,14 +15,13 @@ body {
     line-height: 1.6;
 }
 
-// 3. FLEXBOX: Navegación (Header)
-// Usamos Flexbox para separar el logo del menú
-header {
+// Flexbox for divide navbar and logo
+header{
     background-color: #000;
     padding: 1rem 5%;
-    display: flex;             // Activamos Flexbox
-    justify-content: space-between; // Empuja el logo a la izquierda y nav a la derecha
-    align-items: center;       // Centra todo verticalmente
+    display: flex;            
+    justify-content: space-between; 
+    align-items: center;      
 
     .logo {
         font-weight: bold;
@@ -31,8 +30,8 @@ header {
     }
 
     nav {
-        display: flex;         // Flexbox también para los enlaces
-        gap: 15px;             // Espacio uniforme entre botones
+        display: flex;        
+        gap: 15px;             
 
         a {
             color: $color-texto;
@@ -44,22 +43,35 @@ header {
     }
 }
 
-// 4. SECCIÓN HERO (Centrado con Flexbox)
+// HERO section 
 .hero {
     height: 60vh;
-    display: flex;             // Activamos Flexbox
-    flex-direction: column;    // Alineamos los elementos hacia abajo (columna)
-    justify-content: center;   // Centramos contenido verticalmente
-    align-items: center;       // Centramos contenido horizontalmente
+    display: flex;             
+    flex-direction: column;    
+    justify-content: center;   
+    align-items: center;       
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('tu-imagen.jpg');
+    background: url('images/doral.jpeg');
 
     h1 {
         font-size: 3rem;
         margin-bottom: 10px;
+        color: $color-fondo;
+        border: solid $color-acento;
+        background-color: #e8a020;
+        border-radius: 10px;
+        padding: 0 10px;
+    }
+    p{
+        color:$color-fondo;
+        border: solid $color-acento;
+        background-color: #e8a020;
+        border-radius: 10px;
+        padding: 0 10px;
     }
 
-    .boton {
+
+    .button {
         background-color: $color-acento;
         color: black;
         padding: 10px 25px;
@@ -69,19 +81,23 @@ header {
     }
 }
 
-// 5. GRID: Secciones de Contenido (Fechas y Zonas)
-// Usaremos Grid para organizar el contenido principal
+// GRID Sections
 main {
     padding: 50px 5%;
-    display: grid;             // Activamos Grid
-    grid-template-columns: 1fr 1fr; // Divide la pantalla en 2 columnas iguales
-    gap: 40px;                 // Espacio entre la tabla y la lista
+    display: grid;             
+    grid-template-columns: 2fr 1fr; 
+    gap: 30px;             
     align-items: start;
 
+
     section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         background: #252525;
         padding: $espacio;
         border-radius: 10px;
+        align-items: center;
     }
 
     h2 {
@@ -91,21 +107,65 @@ main {
     }
 }
 
-// Estilos de la tabla (CSS estándar dentro de Sass)
 table {
     width: 100%;
     border-collapse: collapse;
     th, td {
         padding: 10px;
         text-align: left;
-        border-bottom: 1px solid #444;
+        border-bottom: 2px solid #444;
+    }
+}
+.about-us{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        img{
+        height: auto;
+        width: 800px;
+        border-radius: 20px;
+    }
+}
+.gallery{
+    li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            width:350px;
+            height: 250px;
+            margin: 10px 10px;
+            border-radius: 15px;
+
+        }
     }
 }
 
-// 6. FOOTER
+// FOOTER
 footer {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     padding: 20px;
     background-color: #000;
     font-size: 0.9rem;
+    a{
+        text-decoration: none;
+    }
+}
+
+//Renponsive landing page for mobile 
+@media(max-width: 600px){ //Renponsive landing page for mobile 
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .about-us{
+        img{
+            height: auto;
+            width: 350px;
+            border-radius: 20px;
+        }
+    }
 }
